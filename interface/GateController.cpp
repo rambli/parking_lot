@@ -3,7 +3,8 @@
 #include "../include/GateStatusPacket.h"
 using namespace std;
 
-GateController::GateController(){
+GateController::GateController()// : _gateOpenStatus(false)
+{
 	_gateOpenStatus = false;	// Closed by default
 	_packet.SetType(0);		// Vehicle not allowed by default
 }
@@ -14,11 +15,11 @@ void GateController::QueryCustomer()
 	char oper = 'E';
 	cout<<"Enter(E)/Exit(X)?\n";
 	cin>>oper;
-	if('E' == oper)
+	if(('E' == oper) || ('e' == oper))
 	{
 		_packet.SetOper(ENTER);
 	}
-	else
+	else if(('X' == oper) || ('x' == oper))
 	{
 		_packet.SetOper(EXIT);
 	}

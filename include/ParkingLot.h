@@ -10,12 +10,14 @@ class ParkingLot
 {
 	public:
 		ParkingLot();
+		virtual ~ParkingLot();
 		void InsertType(int type);
 		void Increment(int type);
 		void Decrement(int type);
 		bool SpaceAvailable(int type);
 		void PrintOccupancy();
-		virtual int CalculateTarrif();
+		virtual float CalculateTarrif();
+		virtual bool VehicleAllowed(int type); 
 	private:
 		map<int, int> spotCount;
 		int maxCount;

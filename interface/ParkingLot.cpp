@@ -6,6 +6,20 @@ ParkingLot::ParkingLot()
 	maxCount = 20;
 }
 
+ParkingLot::~ParkingLot()
+{
+}
+
+float ParkingLot::CalculateTarrif()
+{
+	return 0.;
+}
+
+bool ParkingLot::VehicleAllowed(int type)
+{
+	return true;
+}
+
 void ParkingLot::PrintOccupancy()
 {
 	map<int,int>::iterator it;
@@ -22,11 +36,12 @@ void ParkingLot::InsertType(int type)
 	// check if type already exists befor inserting it
 	it = spotCount.find(type);
 	
-	if(it != spotCount.end())
+	if(it == spotCount.end())
 	{
 		//spotCount.insert[type] = 0;
 		spotCount.insert(std::pair<int, int>(type, 0));
 	}
+	PrintOccupancy();
 }
 
 void ParkingLot::Increment(int type)
@@ -62,7 +77,5 @@ bool ParkingLot::SpaceAvailable(int type)
 		if((*it).second < maxCount)
 			availability =  true; 
 	}
-	// If type was not found, the vehicle is not allowed anyway,
-	// return false;
 	return (availability);
 }

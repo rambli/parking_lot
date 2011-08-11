@@ -1,5 +1,5 @@
-MFILES= Parking
-IFILES= GateController GateStatusPacket Vehicle ParkingLot
+MFILES= program
+IFILES= GateController GateStatusPacket Vehicle ParkingLot Parking
 
 SRC=$(addsuffix .cpp, $(MFILES))
 OBJS=$(addsuffix .o, $(MFILES))
@@ -12,8 +12,8 @@ IOF=$(addsuffix .o, $(IFILES))
 CC=g++
 LD=g++
 
-CCFLAGS= -Wall -c
-LDFLAGS= -Wall
+CCFLAGS= -c #-Wall -c
+LDFLAGS= #-Wall
 
 EXEC=pk_lot
 
