@@ -1,0 +1,24 @@
+Parking Lot:
+
+A parking lot entry system which decides how many spaces are left for a particular type and allows or dis-allows entry to a vehicle of that type.
+
+Class required:
+- Vehicle class
+- Parking spot class
+- Querying object which gets sent to parking controller which returns status.
+- Gate controller
+
+Design:
+
+The user enters which kind of vehicle he/she is driving at the entrance gate. This information is sent to the parking controller which checks against the currnet capacity to look if any space is available or not. Depending on the result, the command is sent to the gate controller to allow or deny access. 
+
+Flow:
+- ParkingLot is created with specific number of ParkingSpot entries of type T
+- Vehicle arrives at GateController
+- GateController accepts token of type Vehicle
+- GateController sends token<Vehicle> to ParkingLot
+- ParkingLot checks its table<ParkingSpot> to check available spots based on type of vehicle.
+- Sends back status to GateController
+- GateController admits/prevents entry
+- GateController sends result back to ParkingLot
+- ParkingLot updates table<ParkingSpot>
