@@ -7,13 +7,12 @@ OBJS=$(addsuffix .o, $(MFILES))
 ISF=$(addsuffix .cpp, $(IFILES))
 ISRC=$(addprefix ./interface/, $(ISF))
 IOF=$(addsuffix .o, $(IFILES))
-#IOBJS=$(addprefix ./interface/, $(IOF))
 
 CC=g++
 LD=g++
 
-CCFLAGS= -c #-Wall -c
-LDFLAGS= #-Wall
+CCFLAGS= -c
+LDFLAGS=
 
 EXEC=pk_lot
 
