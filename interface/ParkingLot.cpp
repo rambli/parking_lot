@@ -12,7 +12,7 @@ ParkingLot::~ParkingLot()
 
 float ParkingLot::CalculateTarrif()
 {
-	return 0.;
+	return 0.0; // Base type is free parking
 }
 
 bool ParkingLot::VehicleAllowed(int type)

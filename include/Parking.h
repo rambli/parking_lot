@@ -8,7 +8,7 @@ class Parking : public ParkingLot
                 float CalculateTarrif();
                 bool VehicleAllowed(int type);
 	private:
-		float price;
+		float hourlyRate;
 		
 };
 

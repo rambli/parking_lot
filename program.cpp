@@ -18,7 +18,6 @@ int main()
 	LotA.InsertType(pair<Vehicle, int>(Vehicle(4,3000.), 15));
 	LotA.InsertType(pair<Vehicle, int>(Vehicle(6,3000.), 15));
 	LotA.InsertType(pair<Vehicle, int>(Vehicle(8,3000.), 15));
-	LotA.InsertType(pair<Vehicle, int>(Vehicle(10,3000.), 15));
 #endif
 	GateStatusPacket gPacket;
 	while(1)
