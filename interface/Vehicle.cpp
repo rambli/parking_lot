@@ -1,19 +1,27 @@
+#include<iostream>
+#include<string>
 #include "../include/Vehicle.h"
 
 Vehicle::Vehicle()
 {
-	_wheels = 4;
-	_weight = 3000.;
+    cout<<"ERROR: Vehicle must have a valid registration\n";
+    exit(1);
 }
 
-Vehicle::Vehicle(int o, float w)
+Vehicle::Vehicle(string reg, int o)
 {
-	if((o < 3) || (o > 18))
-	{
-		
-	}
-	_wheels = o;
-	_weight = w;
+    _registration = reg;
+	_type = o;
+}
+
+string Vehicle::GetRegistration()
+{
+    return _registration;
+}
+
+void Vehicle::SetRegistration(string reg)
+{
+    _registration = reg;
 }
 
 bool Vehicle::GetPermit()
@@ -21,22 +29,22 @@ bool Vehicle::GetPermit()
 	return _permit;
 }
 
-int Vehicle::GetWheels()
+int Vehicle::GetType()
 {
-	return _wheels;
+	return _type;
 }
 
-float Vehicle::GetWeight()
+void Vehicle::SetType(int o)
 {
-	return _weight;
+	_type = o;
 }
 
-void Vehicle::SetWheels(int o)
+void Vehicle::SetTicket(GateStatusPacket ticket)
 {
-	_wheels = o;
+	_ticket = ticket;
 }
 
-void Vehicle::SetWeight(float o)
+GateStatusPacket Vehicle::GetTicket()
 {
-	_weight = o;
+	return _ticket;
 }

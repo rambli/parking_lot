@@ -18,7 +18,7 @@ EXEC=pk_lot
 
 default:
 	make plot
-	make clean
+	rm *.o
 
 plot:$(OBJS) $(IOF)
 	$(LD) $(LDFLAGS) $(OBJS) $(IOF) -o $(EXEC)
@@ -29,3 +29,4 @@ $(IOF):
 	$(CC) $(CCFLAGS) $(ISRC)
 clean:
 	rm *.o
+	rm $(EXEC)

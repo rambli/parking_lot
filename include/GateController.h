@@ -2,19 +2,25 @@
 #define _GATE_CONTROLLER_H_
 
 #include "GateStatusPacket.h"
+#include "Vehicle.h"
 
 class GateController
 {
-	public:
-		GateController();
-		//GateController(int minWheels, int maxWheels);
-		bool GetGateStatus();
-		void SetGateStatus(bool state);
-		GateStatusPacket GetType();
-	private:
-		void QueryCustomer();
-		bool _gateOpenStatus;
-		GateStatusPacket _packet;
+public:
+    GateController();
+    
+    /* Returns whether the gate is open or close */
+    bool GetGateStatus();
+    
+    /* Sets gate status */
+    void SetGateStatus(bool state);
+    
+    /* Returns a ticket with vehicle and time information */
+    GateStatusPacket GetTicket(Vehicle& v, string message);
+
+private:
+    /* Status of the gate */
+    bool _gateOpenStatus;
 };
 
 #endif

@@ -1,32 +1,51 @@
 #include "../include/GateStatusPacket.h"
+#include<ctime>
+#include<iostream>
+
 
 GateStatusPacket::GateStatusPacket()
 {
-	_oper = ENTER; 
-	_type = 4;
 }
 
-GateStatusPacket::GateStatusPacket(GATE_OPERATION oper, int type)
+GateStatusPacket::GateStatusPacket(string reg)
 {
-	_oper = oper;
-	_type = type;
+    time(&_entryTime); 
+	_registration = reg;
 }
 
-void GateStatusPacket::SetOper(GATE_OPERATION oper)
+GateStatusPacket::GateStatusPacket(string reg, time_t time)
 {
-	_oper = oper;
-}
-void GateStatusPacket::SetType(int type)
-{
-	_type = type;
+	_entryTime = time; 
+	_registration = reg;
 }
 
-GATE_OPERATION GateStatusPacket::GetOper()
+time_t GateStatusPacket::GetEntryTime()
 {
-	return _oper;
+    return _entryTime;
 }
 
-int GateStatusPacket::GetType()
+string GateStatusPacket::GetRegistration()
 {
-	return _type;
+    return _registration;
+}
+
+void GateStatusPacket::PrintTicket(string message)
+{    
+    
+    struct tm *ptm = localtime(&_entryTime);
+    cout<<"\n|========================|\n";
+    cout<<"| Thank you for choosing |\n";
+    cout<<"| our lot                |\n";
+    cout<<"| Date:"<<((ptm->tm_mon)+1)<<"/"<<ptm->tm_mday<<"/"<< ptm->tm_year+1900<<"         |\n";
+    cout<<"| Time:"<<ptm->tm_hour<<":"<<ptm->tm_min<<":"<<ptm->tm_sec<<"          |\n";
+    if (message != "")
+    {
+        cout<<"|"<<message<<"|\n";
+    }
+    else
+    {
+        cout<<"| Vehicle:"<<_registration<<"  |\n";
+    }
+    cout<<"|========================|\n\n";
+    return;
 }
